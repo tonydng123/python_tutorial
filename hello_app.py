@@ -1,11 +1,12 @@
 from datetime import datetime
-import calendar
+
 from flask import Flask
+
+from day import dayname
+
 
 app = Flask(__name__)
 
 @app.route("/")
-
 def hello_world():
-    dayname = calendar.day_name[datetime.now().weekday()]
-    return f"<p>hello, world! Happy {dayname}</p>"
+    return f"<p>Hello, world! Happy {dayname(datetime.now())} from a file!</p>"
